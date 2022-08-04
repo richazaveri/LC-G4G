@@ -1,0 +1,63 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
+        /*ListNode l3 = null;
+        ListNode travrse = null;
+        int carry =0,sum=0;
+        while(l1 != null || l2 != null || carry > 0){
+            var digit1 = l1 != null ? l1.val : 0;
+            var digit2 = l2 != null ? l2.val : 0;
+            
+            sum = digit1 + digit2 + carry;
+            
+            var digit3 = sum % 10;
+            
+            if (l3 == null){
+                l3 = travrse = new ListNode(digit3);
+            }
+            else {
+                travrse.next = new ListNode(digit3);
+                travrse = travrse.next;
+            }
+            carry = sum/10;
+            
+            l1 = l1 != null ? l1.next : null;
+            l2 = l2 != null ? l2.next : null;
+            
+        }
+        return l3;*/
+        ListNode l3=null;
+        int carry=0,sum=0;
+        ListNode head = null;
+        while(l1!=null || l2!= null || carry>0){
+            
+            var d1 = l1!=null ? l1.val:0;
+            var d2 = l2!=null ? l2.val:0;
+            
+            sum = d1+d2+carry;
+            var d3 = sum%10;
+            
+            if(l3==null){
+                l3 = head = new ListNode(d3);
+            }
+            else{
+                l3.next = new ListNode(d3);
+                l3=l3.next;
+            }
+            carry = sum/10;
+             l1 = l1!=null ? l1.next : null;
+             l2 = l2!=null ? l2.next : null;
+        }
+        return head;
+    }
+}
