@@ -1,0 +1,19 @@
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
+        int max=0;
+        List<char> letters = new List<char>();
+        
+        foreach(char c in s){
+            if(!letters.Contains(c)){
+                letters.Add(c);
+            }
+            else{
+                max = Math.Max(max, letters.Count);
+                int index = letters.IndexOf(c);
+                letters.RemoveRange(0,index+1);
+                letters.Add(c);
+            }
+        }
+        return Math.Max(max,letters.Count);
+    }
+}
